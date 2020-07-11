@@ -34,8 +34,8 @@ contract("ProxyCall", (accounts) => {
       truffleAssert.eventEmitted(tx, "LogResult", (ev) => {
         // perform a case insensitive comparison of the address
         // for account[1] and the address logged in the event
-        const regex = new RegExp(accounts[1].slice(2), "i");
-        console.log(regex);
+        const regex = new RegExp(proxy.address.slice(2), "i");
+
         return regex.test(ev.result);
       });
     });
